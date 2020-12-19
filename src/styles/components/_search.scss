@@ -1,0 +1,19 @@
+
+.search__navegacion {
+    color: $secondary;
+}
+
+.search__input {
+    width: 650px;
+    padding: 10px;
+    color: grey;
+    font-size: 18px;
+    margin-right: 7px;
+    border: 0px;
+    
+
+    &:focus {
+        border-bottom: 2px solid $secondary;
+        outline: none;
+    }
+}

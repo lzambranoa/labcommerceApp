@@ -1,16 +1,7 @@
-body {
-    background-color: #FFF159;
-    padding: 60px;
+@import './base/settings';
+@import './base/base';
 
-    h1 {
-        color: #2D3277;
-        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    }
-}
+// componentes
 
-
-input {
-    width: 400px;
-    height: 30px;
-    padding: 15px;
-}
+@import './components/search';
+@import './components/buttons';
