@@ -5,16 +5,18 @@ import { useForm } from '../hooks/useForm';
 export const SearchBar = () => {
 
     const [ formValues, handleInputChange, reset ] = useForm({
-        searchText: 'initial',
+        searchText: '',
     });
 
     const { searchText } = formValues;
+    console.log(searchText);
 
     const handleSearch = (e) => {
         e.preventDefault();
-        console.log(e.target.value);
         reset();
     }
+
+
 
     return (
         <div className="container search__navegacion">
@@ -29,6 +31,7 @@ export const SearchBar = () => {
                             type="text"
                             placeholder="Busca tus productos..."
                             autoComplete='off'
+                            name="searchText"
                             value={searchText}
                             onChange={handleInputChange}
 
