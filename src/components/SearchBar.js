@@ -1,11 +1,18 @@
 import React from 'react';
+import queryString from 'query-string';
+
+import { useLocation } from 'react-router-dom';
 import { useForm } from '../hooks/useForm';
 
 
-export const SearchBar = () => {
+export const SearchBar = ({ history }) => {
+
+    const location = useLocation();
+    console.log(location);
+    const { q = ''} = queryString.parse(location.search);
 
     const [ formValues, handleInputChange, reset ] = useForm({
-        searchText: '',
+        searchText: q,
     });
 
     const { searchText } = formValues;
@@ -13,6 +20,7 @@ export const SearchBar = () => {
 
     const handleSearch = (e) => {
         e.preventDefault();
+        history.push(`?q=${searchText}`);
         reset();
     }
 
