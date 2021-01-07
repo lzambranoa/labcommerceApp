@@ -1,11 +1,13 @@
 import React from 'react';
-import { SearchBar } from './components/SearchBar';
+
+import AppRoutes from './routes/AppRoutes';
 
 export const App = () => {
     return(
         <div>
-            <SearchBar />
-            <hr />
+            <AppRoutes />
+            
+            
         </div>
     )
 }

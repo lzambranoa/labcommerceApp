@@ -8,7 +8,6 @@ import { useForm } from '../hooks/useForm';
 export const SearchBar = ({ history }) => {
 
     const location = useLocation();
-    console.log(location);
     const { q = ''} = queryString.parse(location.search);
 
     const [ formValues, handleInputChange, reset ] = useForm({
@@ -16,7 +15,6 @@ export const SearchBar = ({ history }) => {
     });
 
     const { searchText } = formValues;
-    console.log(searchText);
 
     const handleSearch = (e) => {
         e.preventDefault();
