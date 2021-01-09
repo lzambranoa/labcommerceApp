@@ -11,7 +11,7 @@ export default function AppRoutes() {
         <Router>
             <div>
                 <Switch>
-                    <Route path="/api/search" component={SearchBar} />
+                    <Route path="/" component={SearchBar} />
                 </Switch>
             </div>
         </Router>

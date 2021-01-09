@@ -3,6 +3,7 @@ import queryString from 'query-string';
 
 import { useLocation } from 'react-router-dom';
 import { useForm } from '../hooks/useForm';
+import { Card } from './Card';
 
 
 export const SearchBar = ({ history }) => {
@@ -25,6 +26,7 @@ export const SearchBar = ({ history }) => {
 
 
     return (
+        <div>
         <div className="container search__navegacion">
             <div className="row" >
                 <div className="col-md-4" >
@@ -51,6 +53,14 @@ export const SearchBar = ({ history }) => {
                     </form>
                 </div>
             </div>
+           
         </div>
+        <Card />
+
+        </div>
+
+
+        
+    
     )
 }

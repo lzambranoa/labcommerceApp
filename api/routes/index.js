@@ -13,7 +13,7 @@ router.get('/search', ( req, res ) => {
     let { query, page, category } = req.query;
     console.log(req.query);
 
-    !page && (page === 1);
+    !page && (page = 1);
     if(cache[query] && cache[query][page]) {
         console.log('Entro al cache');
         return res.json(cache[query][page]);
