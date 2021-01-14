@@ -15,7 +15,6 @@ router.get('/search', ( req, res ) => {
 
     !page && (page = 1);
     if(cache[query] && cache[query][page]) {
-        console.log('Entro al cache');
         return res.json(cache[query][page]);
     }
 

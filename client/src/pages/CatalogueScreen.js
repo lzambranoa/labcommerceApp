@@ -6,10 +6,11 @@ import { useLocation } from 'react-router-dom';
 import { searchProducts } from '../actions/action';
 import { Card } from '../components/Card';
 import Categories from '../components/Categories';
+import PaginationRounded from '../components/Pagination';
 
 export const CatalogueScreen = () => {
 
-    const results = useSelector( state => state.product.results );
+    const results = useSelector(state => state.product.results);
     console.log(results);
     const dispatch = useDispatch();
     const location = useLocation();
@@ -27,32 +28,28 @@ export const CatalogueScreen = () => {
     }, [item, sort, condition, page, dispatch]);
 
 
-    return(
+    return (
         <div className="container">
             <div className="row" >
 
-            <div className="col-2" >
-                <Categories />  
+                <div className="col-2" >
+                    <Categories />
+                </div>
+                <div className="col-10" >
+                    <Container fluid className="grid card-columns animate__animated animate__fadeIn">
+                        <Row>
+                            {results.results &&
+                                results.results.map((product) => {
+                                    return <Card product={product} />;
+                                })}
+                        </Row>
+                    </Container>
+                </div>
             </div>
-            <div className="col-10" >
-            <Container fluid className="grid card-columns animate__animated animate__fadeIn">
-                <Row>
-                        {results.results &&
-                            results.results.map((product) => {
-                                return <Card product={product} />;
-                            })}
-                </Row>
-            </Container>
-            {/* <NewPagination
-                total={
-                    results.paging && results.paging.total < 1000
-                        ? results.paging.total
-                        : 1029
-                }
-            /> */}
-            </div>
-            </div>
+            
+                <PaginationRounded total={(results.paging && results.paging.total < 1000) ? results.paging.total : 1029} />
+            
         </div>
     );
-    
+
 }

@@ -1,6 +1,9 @@
 import React from 'react';
 
 export const Card = ({product}) => {
+
+    const url = product.permalink;
+
     return (
         <div className="card m-2" style={{maxWidth: 320}}>
             <div className="row g-0 no-gutters">
@@ -12,7 +15,8 @@ export const Card = ({product}) => {
                         <h5 className="card-title">{ product.title  }</h5>
                         <p className="card-text">Precio: ${ product.price }</p>
                         <p className="card-text">Estado: { product.condition }</p>
-                        <button className="btn btn-primary" >Comprar</button>
+                        <p className="card-text">Stock: { product.available_quantity }</p>
+                            <button className="btn btn-primary" >Comprar</button>
                     </div>
                 </div>
             </div>
