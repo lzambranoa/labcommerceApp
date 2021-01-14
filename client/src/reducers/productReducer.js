@@ -9,7 +9,7 @@ const initialState = {
 
 export const productReducer = (state = initialState, action) => {
     switch(action.type){
-        case types.SEARCH_PRODUCT:
+        case types.SEARCH_PRODUCTS:
             return {
                 ...state,
                 results: action.payload,
@@ -23,7 +23,7 @@ export const productReducer = (state = initialState, action) => {
         case types.GET_CATEGORIES:
             return {
                 ...state,
-                results: action.payload,
+                categories: action.payload,
             }
         default:
             return state;

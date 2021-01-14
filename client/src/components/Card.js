@@ -1,17 +1,18 @@
 import React from 'react';
 
-export const Card = () => {
+export const Card = ({product}) => {
     return (
-        <div class="card mb-3" style={{maxWidth: 540}}>
-            <div class="row g-0">
-                <div class="col-md-4">
-                    <img src="..." alt="..." />
+        <div className="card m-2" style={{maxWidth: 320}}>
+            <div className="row g-0 no-gutters">
+                <div className="col-md-4">
+                    <img src={ product.thumbnail } alt={ product.title } className="card-img pt-2"/>
                 </div>
-                <div class="col-md-8">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                <div className="col-md-8">
+                    <div className="card-body">
+                        <h5 className="card-title">{ product.title  }</h5>
+                        <p className="card-text">Precio: ${ product.price }</p>
+                        <p className="card-text">Estado: { product.condition }</p>
+                        <button className="btn btn-primary" >Comprar</button>
                     </div>
                 </div>
             </div>

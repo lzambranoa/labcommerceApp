@@ -1,36 +1,31 @@
-import React from 'react';
-import queryString from 'query-string';
+import React, { useState } from 'react';
 
-import { useLocation } from 'react-router-dom';
-import { useForm } from '../hooks/useForm';
-import { Card } from './Card';
+import { Link, useHistory } from 'react-router-dom';
 
 
-export const SearchBar = ({ history }) => {
+export const SearchBar = () => {
 
-    const location = useLocation();
-    const { q = ''} = queryString.parse(location.search);
+    const history = useHistory()
+    const [input, setInput] = useState("");
 
-    const [ formValues, handleInputChange, reset ] = useForm({
-        searchText: q,
-    });
-
-    const { searchText } = formValues;
-
-    const handleSearch = (e) => {
+    const handleChange = (e) => {
         e.preventDefault();
-        history.push(`?q=${searchText}`);
-        reset();
+        setInput(e.target.value);
     }
 
+    const handleSearch = () => {
+        history.push(`item=${input}`)
+    }
 
 
     return (
         <div>
         <div className="container search__navegacion">
-            <div className="row" >
+            <div className="row mb-10" >
                 <div className="col-md-4" >
-                    <h1>LabCommerce App</h1>
+                    <Link to="/" style={{textDecoration: 'none'}} >
+                        <h1>LabCommerce App</h1>
+                    </Link>
                 </div>
                 <div className="col-md-8" >
                     <form onSubmit={handleSearch} >
@@ -39,9 +34,8 @@ export const SearchBar = ({ history }) => {
                             type="text"
                             placeholder="Busca tus productos..."
                             autoComplete='off'
-                            name="searchText"
-                            value={searchText}
-                            onChange={handleInputChange}
+                            value={input}
+                            onChange={handleChange}
 
                         />
                         <button
@@ -55,7 +49,6 @@ export const SearchBar = ({ history }) => {
             </div>
            
         </div>
-        <Card />
 
         </div>
 
